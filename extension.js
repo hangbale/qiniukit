@@ -20,15 +20,7 @@ function activate(context) {
 		}).then(fileUri => {
 			if (fileUri && fileUri[0]) {
 				let file = fileUri[0];
-				let filename = file.path.match(/[^\.\/]+\.[a-zA-Z0-9]+$/);
-				if (!filename) {
-					vscode.window.showErrorMessage('选择文件失败');
-					return;
-				}
-				filename = filename[0];
-				console.log('outer')
-				console.log(filename)
-				qiniuKit.upload(file.path, filename);
+				qiniuKit.upload(file.path);
 			}
 		})
 	});
@@ -47,7 +39,6 @@ function activate(context) {
 
 		panel.webview.onDidReceiveMessage(function (evt) {
 			if (evt.action === 'next') {
-				console.log('show next');
 				fetchList()
 			}
 			if (evt.action === 'remove') {
