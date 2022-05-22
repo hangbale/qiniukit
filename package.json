@@ -1,0 +1,117 @@
+{
+  "name": "qiniukit",
+  "displayName": "qiniukit",
+  "description": "七牛云对象存储上传，文件管理工具,upload file to qiniu,manage files",
+  "version": "1.0.0",
+  "publisher": "hangbale",
+  "engines": {
+    "vscode": "^1.67.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hangbale/qiniukit.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "logo.png",
+  "activationEvents": [
+    "onCommand:extension.qnupload",
+    "onCommand:extension.qnlist"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "七牛云API配置",
+      "properties": {
+        "qiniukey.ak": {
+          "type": "string",
+          "default": "",
+          "description": "Access Key"
+        },
+        "qiniukey.sk": {
+          "type": "string",
+          "default": "",
+          "description": "Secret Key"
+        },
+        "qiniukey.bucket": {
+          "type": "string",
+          "default": "",
+          "description": "bucket"
+        },
+        "qiniukey.zone": {
+          "type": "string",
+          "default": "华东",
+          "enum": [
+            "华东",
+            "华北",
+            "华南",
+            "北美"
+          ]
+        },
+        "qiniukey.domain": {
+          "type": "string",
+          "default": "",
+          "description": "空间所绑定的域名"
+        },
+        "qiniukey.processor": {
+          "type": "string",
+          "default": "",
+          "description": "图片样式"
+        },
+        "qiniukey.separator": {
+          "type": "string",
+          "default": "",
+          "description": "样式分隔符"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "extension.qnupload",
+        "title": "上传到七牛云"
+      },
+      {
+        "command": "extension.qnlist",
+        "title": "七牛云空间文件管理"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "extension.qnupload",
+          "group": "navigation"
+        },
+        {
+          "when": "editorFocus",
+          "command": "extension.qnlist",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "webpack": "webpack --mode development",
+    "webpack-dev": "webpack --mode development --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "test-compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "14.x",
+    "@types/vscode": "^1.67.0",
+    "@vscode/test-electron": "^2.1.3",
+    "eslint": "^8.14.0",
+    "glob": "^8.0.1",
+    "mocha": "^9.2.2",
+    "typescript": "^4.6.4",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "qiniu": "^7.6.0"
+  }
+}
