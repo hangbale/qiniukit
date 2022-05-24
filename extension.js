@@ -61,7 +61,6 @@ function activate(context) {
 			})
 		}
 		
-		fetchList()
 	})
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(listDis);

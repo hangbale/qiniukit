@@ -74,7 +74,6 @@ module.exports = `<!DOCTYPE html>
   <script>
     const vscode = acquireVsCodeApi();
     window.addEventListener('message', function (evt) {
-      
       if (evt && evt.data) {
         addListItem(evt.data)
       }
@@ -108,11 +107,13 @@ module.exports = `<!DOCTYPE html>
       });
       list.appendChild(node)
     }
-    document.getElementById('pagination').addEventListener('click', function () {
+    function request () {
       vscode.postMessage({
         action: 'next'
       })
-    })
+    }
+    document.getElementById('pagination').addEventListener('click', request)
+    request()
   </script>
 </body>
 </html>`

@@ -19,7 +19,7 @@
     "onCommand:extension.qnupload",
     "onCommand:extension.qnlist"
   ],
-  "main": "./dist/extension.js",
+  "main": "./extension.js",
   "contributes": {
     "configuration": {
       "title": "七牛云API配置",
