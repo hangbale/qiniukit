@@ -2,7 +2,7 @@
   "name": "qiniukit",
   "displayName": "qiniukit",
   "description": "七牛云对象存储上传，文件管理工具,upload file to qiniu,manage files",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "publisher": "hangbale",
   "engines": {
     "vscode": "^1.67.0"
@@ -19,7 +19,7 @@
     "onCommand:extension.qnupload",
     "onCommand:extension.qnlist"
   ],
-  "main": "./extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "configuration": {
       "title": "七牛云API配置",

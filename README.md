@@ -3,7 +3,8 @@
 vscode七牛云空间管理插件
 
 ## 安装
-插件搜索 qiniukit
+插件搜索 qiniukit    
+
 插件市场地址: https://marketplace.visualstudio.com/items?itemName=hangbale.qiniukit
 
 ## 功能
